@@ -1,0 +1,57 @@
+
+Group Details: Surakshitha M 1ks17cs088
+                        Varshitha S       1ks17cs095
+                        Sindhu M         1ks17cs079
+
+A10. Implement Distance Vector Routing protocol where multiple routers are connected and forward packet and
+ build their forwarding table.
+The routing update message corresponds to distance vector information consisting
+ of following information
+  
+- Array of (Rid: cost) for each known router in the network
+
+
+A receiving router upon receipt of this message, will perform Routing table computation using Bellman Ford algorithm
+ and print the routing table entries. The routing table entries will look as follows
+ 
+
+ <Destination router; Next hop; cost to destination router>
+
+Description:
+                  Here we  have implemented distance vector routing protocol in networks.It measures the distance by the number of routers and 
+                 packet has to pass one router counts has one hop. distance vector routing protocols use the Bellman-Ford algorithm
+                to calculate the best route. Each router will be contain the process listening on a UDP sockets. the listen port number
+               would be 50000+100*N+dd, where  N is the router number, 
+                                                                      dd corresponds to last 2 digits of lowest USN number of the team
+               router <id> <Rid-1:cost-1> <T> <Rid-2:cost-2>,where  
+                                                                      id - router number. It will be limited between 1 to 9
+                                                                     T - time interval at which it will send periodic routing updates to other connected routers
+                                                                    Rid:cost: id of router number and its link cost
+               We have implemented distance vector routing protocol using java programming language. We have created two java files: 1) Admin.Java and 2) MainRouter.Java. We are using singe machine for implementing this project.
+Admin will access the given directory path to find the number of routers present and it will assign port numbers corresponding to each router/file. For each router present, MainRouter java class is called and it calculates distance to other routers and it detects link cost changes and recalculate the cost
+
+TO EXCUTE:
+1) Admin will accept input from user (Directory Path).
+2) It checks whether the Directory path is valid or not
+3) Calculate how many files are present in the directory (Each file corresponds to router.)
+4) Asking the user to assign port number for each file present in the directory.
+5) Now the control is passed to MainRouter class. Separate command prompt window is opened for each router.
+6) Initialize the local variables like hop List, neighbor List, Socket and File.
+7) Now we are creating two threads for each router.
+8) One thread is used for reading the distance vector information from the network and update the global network distance matrix of each router.
+9) Another thread is opened to calculate the shortest path based on the distance vector algorithm and write the updated information to neighbors.
+10) After each writing is completed, it waits for 6 seconds to receive distance vector information from its neighbors.
+11) Then it performs computations and again it waits for 12 seconds and repeat the same process from step 8.
+12) save all the .dat files in folder for excuting the program
+
+*run all the files
+*Run Admin.java file and give the corresponding directory path as argument
+        java Admin C:\Users\febin\Desktop\Project3\Data_
+
+ 
+            
+problems faced:
+packages werent installed
+
+                        
+                
